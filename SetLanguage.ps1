@@ -1,7 +1,3 @@
-param(
-    [string]$lng = "en-AU"
-)
-
 if (-not [System.Environment]::Is64BitProcess)
 {
     Write-Host "Not 64-bit process. Restart in 64-bit environment"
@@ -31,10 +27,10 @@ if (-not [System.Environment]::Is64BitProcess)
 
 Start-Transcript -Path "C:\Windows\Temp\SetLanguage.log" | Out-Null
 
-#$lng = "en-AU"
+$lng = "de-AT"
 $outFile = "C:\Windows\Temp\Lng.xml"
 #https://docs.microsoft.com/en-au/windows/desktop/Intl/table-of-geographical-locations
-$location = 12
+$location = 14
 
 Write-Host "Set language: $lng"
 Write-Host "Language file: $outFile"
@@ -64,7 +60,7 @@ $xmlStr = @"
 
     <gs:MUILanguagePreferences>
         <gs:MUILanguage Value="$($lng)"/>
-        <!--<gs:MUIFallback Value="en-US"/>-->
+        <gs:MUIFallback Value="en-US"/>
     </gs:MUILanguagePreferences>
 
 </gs:GlobalizationServices>
